@@ -1,5 +1,5 @@
 entity.sarwis_search_point.collection:
-  path: '/admin/content/sarwis-search-point'
+  path: '/admin/content/sarwis-search-points'
   defaults:
     _entity_list: 'sarwis_search_point'
     _title: 'SARWIS Search Points'
@@ -7,7 +7,7 @@ entity.sarwis_search_point.collection:
     _permission: 'view sarwis search point'
 
 entity.sarwis_search_point.add_form:
-  path: '/admin/content/sarwis-search-point/add'
+  path: '/admin/content/sarwis-search-points/add'
   defaults:
     _entity_form: 'sarwis_search_point.add'
     _title: 'Add SARWIS Search Point'
@@ -15,7 +15,7 @@ entity.sarwis_search_point.add_form:
     _permission: 'add sarwis search point'
 
 entity.sarwis_search_point.canonical:
-  path: '/admin/content/sarwis-search-point/{sarwis_search_point}'
+  path: '/sarwis-search-point/{sarwis_search_point}'
   defaults:
     _entity_view: 'sarwis_search_point.full'
     _title_callback: '\Drupal\Core\Entity\Controller\EntityController::title'
@@ -27,7 +27,7 @@ entity.sarwis_search_point.canonical:
         type: 'entity:sarwis_search_point'
 
 entity.sarwis_search_point.edit_form:
-  path: '/admin/content/sarwis-search-point/{sarwis_search_point}/edit'
+  path: '/sarwis-search-point/{sarwis_search_point}/edit'
   defaults:
     _entity_form: 'sarwis_search_point.edit'
     _title_callback: '\Drupal\Core\Entity\Controller\EntityController::editTitle'
@@ -39,7 +39,7 @@ entity.sarwis_search_point.edit_form:
         type: 'entity:sarwis_search_point'
 
 entity.sarwis_search_point.delete_form:
-  path: '/admin/content/sarwis-search-point/{sarwis_search_point}/delete'
+  path: '/sarwis-search-point/{sarwis_search_point}/delete'
   defaults:
     _entity_form: 'sarwis_search_point.delete'
     _title: 'Delete'

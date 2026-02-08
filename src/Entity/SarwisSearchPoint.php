@@ -51,11 +51,11 @@ use Drupal\user\EntityOwnerTrait;
  *     "owner" = "uid",
  *   },
  *   links = {
- *     "canonical" = "/admin/content/sarwis-search-point/{sarwis_search_point}",
- *     "add-form" = "/admin/content/sarwis-search-point/add",
- *     "edit-form" = "/admin/content/sarwis-search-point/{sarwis_search_point}/edit",
- *     "delete-form" = "/admin/content/sarwis-search-point/{sarwis_search_point}/delete",
- *     "collection" = "/admin/content/sarwis-search-point",
+ *     "canonical" = "/sarwis-search-point/{sarwis_search_point}",
+ *     "add-form" = "/admin/content/sarwis-search-points/add",
+ *     "edit-form" = "/sarwis-search-point/{sarwis_search_point}/edit",
+ *     "delete-form" = "/sarwis-search-point/{sarwis_search_point}/delete",
+ *     "collection" = "/admin/content/sarwis-search-points",
  *   },
  *   field_ui_base_route = "entity.sarwis_search_point.settings"
  * )

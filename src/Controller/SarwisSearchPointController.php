@@ -3,6 +3,8 @@
 namespace Drupal\sarwis\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Url;
 
 /**
  * Returns responses for SARWIS Search Point routes.
@@ -10,15 +12,16 @@ use Drupal\Core\Controller\ControllerBase;
 class SarwisSearchPointController extends ControllerBase {
 
   /**
-   * Displays add links for available bundles/types for entity sarwis_search_point.
+   * Redirects to the field UI manage fields page.
    *
-   * @return array
-   *   A render array for a list of the sarwis_search_point bundles that can be added.
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   A redirect response to the field management page.
    */
   public function settings() {
-    return [
-      '#markup' => $this->t('Add SARWIS fields, manage forms and displays'),
-    ];
+    $url = Url::fromRoute('entity.sarwis_search_point.field_ui_fields', [
+      'entity_type_id' => 'sarwis_search_point',
+    ]);
+    return new RedirectResponse($url->toString());
   }
 
 }

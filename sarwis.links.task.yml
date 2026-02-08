@@ -27,8 +27,3 @@ entity.sarwis_search_point.delete_form:
   base_route: entity.sarwis_search_point.canonical
   title: 'Delete'
   weight: 20
-
-sarwis_search_point.settings:
-  route_name: entity.sarwis_search_point.settings
-  base_route: entity.sarwis_search_point.settings
-  title: 'Settings'
