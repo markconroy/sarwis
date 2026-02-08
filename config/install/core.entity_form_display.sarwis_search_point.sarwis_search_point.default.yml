@@ -15,38 +15,6 @@ targetEntityType: sarwis_search_point
 bundle: sarwis_search_point
 mode: default
 content:
-  sarwis_activity:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  sarwis_search_point:
-    type: geofield_latlon
-    weight: 4
-    region: content
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-  sarwis_search_point_file:
-    type: file_generic
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  sarwis_search_point_notes:
-    type: string_textarea
-    weight: 6
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   name:
     type: string_textfield
     weight: -5
@@ -54,5 +22,53 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  sarwis_activity:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  sarwis_search_point_file:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  sarwis_search_point:
+    type: geofield_latlon
+    weight: 3
+    region: content
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+  sarwis_search_point_notes:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden: {  }

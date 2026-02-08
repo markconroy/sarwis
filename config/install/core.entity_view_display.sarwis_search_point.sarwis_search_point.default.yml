@@ -15,6 +15,14 @@ targetEntityType: sarwis_search_point
 bundle: sarwis_search_point
 mode: default
 content:
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
   sarwis_activity:
     type: entity_reference_label
     label: above
@@ -22,6 +30,21 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  sarwis_search_point_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  sarwis_search_point_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 3
     region: content
   sarwis_search_point:
     type: leaflet_formatter_default
@@ -117,27 +140,12 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
-  sarwis_search_point_file:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  sarwis_search_point_notes:
-    type: basic_string
+  uid:
+    type: author
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 5
     region: content
-  name:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-hidden: {  }
+hidden:
+  status: true

@@ -20,21 +20,6 @@ targetEntityType: sarwis_search_point
 bundle: sarwis_search_point
 mode: sarwis_map_popup
 content:
-  sarwis_search_point_file:
-    type: file_default
-    label: hidden
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  sarwis_search_point_notes:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
   name:
     type: string
     label: hidden
@@ -43,6 +28,23 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  sarwis_search_point_notes:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  sarwis_search_point_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   sarwis_activity: true
   sarwis_search_point: true
+  status: true
+  uid: true

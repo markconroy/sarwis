@@ -4,11 +4,13 @@ namespace Drupal\sarwis;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
+use Drupal\Core\Entity\EntityPublishedInterface;
+use Drupal\user\EntityOwnerInterface;
 
 /**
  * Provides an interface for defining SARWIS Search Point entities.
  */
-interface SarwisSearchPointInterface extends ContentEntityInterface, EntityChangedInterface {
+interface SarwisSearchPointInterface extends ContentEntityInterface, EntityChangedInterface, EntityPublishedInterface, EntityOwnerInterface {
 
   /**
    * Gets the search point name.
@@ -24,7 +26,7 @@ interface SarwisSearchPointInterface extends ContentEntityInterface, EntityChang
    * @param string $name
    *   The search point name.
    *
-   * @return \Drupal\sarwis_search_point\SarwisSearchPointInterface
+   * @return \Drupal\sarwis\SarwisSearchPointInterface
    *   The called search point entity.
    */
   public function setName($name);
@@ -43,7 +45,7 @@ interface SarwisSearchPointInterface extends ContentEntityInterface, EntityChang
    * @param int $timestamp
    *   The search point creation timestamp.
    *
-   * @return \Drupal\sarwis_search_point\SarwisSearchPointInterface
+   * @return \Drupal\sarwis\SarwisSearchPointInterface
    *   The called search point entity.
    */
   public function setCreatedTime($timestamp);
