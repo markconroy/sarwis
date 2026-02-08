@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sarwis_search_point.sarwis_search_point
+  module:
+    - geocoder_field
+    - geofield
+    - sarwis
+third_party_settings:
+  geocoder_field:
+    method: geocode
+    weight: 0
+    field: sarwis_search_point_file
+    skip_not_empty_value: false
+    disabled: false
+    hidden: true
+    providers:
+      - gpx_file
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: sarwis_search_point.sarwis_search_point.sarwis_search_point
+field_name: sarwis_search_point
+entity_type: sarwis_search_point
+bundle: sarwis_search_point
+label: 'SARWIS Search Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

@@ -1,0 +1,13 @@
+entity.sarwis_search_point.collection:
+  title: 'SARWIS Search Points'
+  route_name: entity.sarwis_search_point.collection
+  description: 'List SARWIS Search Point entities'
+  parent: system.admin_content
+  weight: 10
+
+entity.sarwis_search_point.settings:
+  title: 'SARWIS Search Point Settings'
+  route_name: entity.sarwis_search_point.settings
+  description: 'Configure SARWIS Search Point entity fields'
+  parent: system.admin_structure
+  weight: 10

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sarwis_search_point.sarwis_search_point_notes
+  module:
+    - sarwis
+id: sarwis_search_point.sarwis_search_point.sarwis_search_point_notes
+field_name: sarwis_search_point_notes
+entity_type: sarwis_search_point
+bundle: sarwis_search_point
+label: 'SARWIS Search Point Notes'
+description: 'Add any notes you want to about this search point.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

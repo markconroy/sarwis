@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sarwis_search_point.sarwis_search_point_file
+  module:
+    - file
+    - sarwis
+id: sarwis_search_point.sarwis_search_point.sarwis_search_point_file
+field_name: sarwis_search_point_file
+entity_type: sarwis_search_point
+bundle: sarwis_search_point
+label: 'SARWIS Search Point File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: 'sarwis-search-points/[date:custom:Y]-[date:custom:m]'
+  file_extensions: gpx
+  max_filesize: ''
+  description_field: false
+field_type: file

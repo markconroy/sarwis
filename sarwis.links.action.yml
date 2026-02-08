@@ -1,0 +1,5 @@
+sarwis_search_point.add:
+  route_name: 'entity.sarwis_search_point.add_form'
+  title: 'Add Search Point'
+  appears_on:
+    - entity.sarwis_search_point.collection

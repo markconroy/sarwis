@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - geofield
+    - sarwis
+id: sarwis_search_point.sarwis_search_point
+field_name: sarwis_search_point
+entity_type: sarwis_search_point
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

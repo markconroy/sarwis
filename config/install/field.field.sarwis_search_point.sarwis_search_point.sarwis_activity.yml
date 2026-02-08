@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sarwis_search_point.sarwis_activity
+    - node.type.sarwis
+  module:
+    - sarwis
+id: sarwis_search_point.sarwis_search_point.sarwis_activity
+field_name: sarwis_activity
+entity_type: sarwis_search_point
+bundle: sarwis_search_point
+label: 'SARWIS Activity'
+description: 'Choose the SARWIS activity that this search point relates to.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      sarwis: sarwis
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

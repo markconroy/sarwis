@@ -1,0 +1,7 @@
+entity.sarwis_search_point.settings:
+  path: '/admin/structure/sarwis-search-point/settings'
+  defaults:
+    _controller: '\Drupal\sarwis\Controller\SarwisSearchPointController::settings'
+    _title: 'SARWIS Search Point Settings'
+  requirements:
+    _permission: 'administer sarwis search point'

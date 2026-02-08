@@ -1,0 +1,184 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the sarwis_demo module.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\sarwis\Entity\SarwisSearchPoint;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_install().
+ */
+function sarwis_demo_install() {
+  // Create the three activity nodes.
+  $nodes = [];
+
+  // Create Swimming node.
+  $node = Node::create([
+    'type' => 'sarwis',
+    'title' => 'Swimming',
+    'status' => 1,
+  ]);
+  $node->save();
+  $nodes['swimming'] = $node;
+
+  // Create Running node.
+  $node = Node::create([
+    'type' => 'sarwis',
+    'title' => 'Running',
+    'status' => 1,
+  ]);
+  $node->save();
+  $nodes['running'] = $node;
+
+  // Create Cycling node.
+  $node = Node::create([
+    'type' => 'sarwis',
+    'title' => 'Cycling',
+    'status' => 1,
+  ]);
+  $node->save();
+  $nodes['cycling'] = $node;
+
+  // Create search point entities for each GPX file.
+  $module_path = \Drupal::service('extension.list.module')->getPath('sarwis_demo');
+
+  // Swimming search points.
+  _sarwis_demo_create_search_point(
+    'Swimming 1',
+    $nodes['swimming'],
+    $module_path . '/content/swimming/swimming-1.gpx',
+    'First swimming session - Great swim at the local pool. Water temperature was perfect at 28°C. Completed 40 laps focusing on freestyle technique.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Swimming 2',
+    $nodes['swimming'],
+    $module_path . '/content/swimming/swimming-2.gpx',
+    'Second swimming session - Open water swim at the lake. Challenging conditions with some choppy water, but completed the full distance. Visibility was good.'
+  );
+
+  // Running search points.
+  _sarwis_demo_create_search_point(
+    'Running 1',
+    $nodes['running'],
+    $module_path . '/content/running/running-1.gpx',
+    'Morning run through the park. Easy pace, enjoyed the sunrise. Felt strong throughout, legs recovered well from yesterday.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Running 2',
+    $nodes['running'],
+    $module_path . '/content/running/running-2.gpx',
+    'Interval training session. 8x400m repeats with 90 second recovery. Heart rate peaked at 180bpm. Tough but effective workout.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Running 3',
+    $nodes['running'],
+    $module_path . '/content/running/running-3.gpx',
+    'Long run day - 15km at steady pace. Started slow and built up gradually. Nutrition strategy worked well, took gels at 5km and 10km.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Running 4',
+    $nodes['running'],
+    $module_path . '/content/running/running-4.gpx',
+    'Recovery run after yesterday\'s long effort. Easy 5km keeping heart rate in zone 2. Legs felt a bit heavy but mobility improved as I went.'
+  );
+
+  // Cycling search points.
+  _sarwis_demo_create_search_point(
+    'Cycling 1',
+    $nodes['cycling'],
+    $module_path . '/content/cycling/cycling-1.gpx',
+    'Sunday group ride - 60km with the club. Beautiful weather, light winds. Average speed 28km/h. Great social ride with coffee stop at halfway.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Cycling 2',
+    $nodes['cycling'],
+    $module_path . '/content/cycling/cycling-2.gpx',
+    'Hill repeats session. 6 climbs of the local hill, 1.2km at 7% gradient each. Power output averaged 280w on climbs. Legs burning but great training.'
+  );
+}
+
+/**
+ * Helper function to create a search point entity.
+ *
+ * @param string $name
+ *   The name of the search point.
+ * @param \Drupal\node\Entity\Node $activity_node
+ *   The parent activity node.
+ * @param string $gpx_file_path
+ *   The path to the GPX file.
+ * @param string $notes
+ *   Notes for the search point.
+ */
+function _sarwis_demo_create_search_point($name, $activity_node, $gpx_file_path, $notes) {
+  // Create file entity for the GPX file if it exists.
+  $file = NULL;
+  if (file_exists($gpx_file_path)) {
+    $destination = 'public://sarwis_demo/' . basename($gpx_file_path);
+    $directory = dirname($destination);
+    \Drupal::service('file_system')->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+
+    $file_uri = \Drupal::service('file_system')->copy($gpx_file_path, $destination, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+
+    if ($file_uri) {
+      $file = File::create([
+        'uri' => $file_uri,
+        'status' => 1,
+      ]);
+      $file->save();
+    }
+  }
+
+  // Create the search point entity.
+  $search_point = SarwisSearchPoint::create([
+    'name' => $name,
+    'sarwis_activity' => ['target_id' => $activity_node->id()],
+    'sarwis_search_point_notes' => ['value' => $notes, 'format' => 'plain_text'],
+  ]);
+
+  // Add the file if it was created.
+  if ($file) {
+    $search_point->set('sarwis_search_point_file', ['target_id' => $file->id()]);
+  }
+
+  $search_point->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function sarwis_demo_uninstall() {
+  // Clean up demo content on uninstall.
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $search_point_storage = \Drupal::entityTypeManager()->getStorage('sarwis_search_point');
+
+  // Find and delete demo nodes.
+  $demo_titles = ['Swimming', 'Running', 'Cycling'];
+  foreach ($demo_titles as $title) {
+    $nodes = $node_storage->loadByProperties([
+      'type' => 'sarwis',
+      'title' => $title,
+    ]);
+
+    foreach ($nodes as $node) {
+      // Find and delete associated search points.
+      $search_points = $search_point_storage->loadByProperties([
+        'sarwis_activity' => $node->id(),
+      ]);
+
+      foreach ($search_points as $search_point) {
+        $search_point->delete();
+      }
+
+      $node->delete();
+    }
+  }
+}

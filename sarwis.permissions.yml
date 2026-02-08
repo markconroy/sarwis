@@ -1,0 +1,15 @@
+administer sarwis search point:
+  title: 'Administer SARWIS Search Point'
+  description: 'Allow to access the administration forms to configure SARWIS Search Point entities.'
+
+add sarwis search point:
+  title: 'Create new SARWIS Search Point'
+
+view sarwis search point:
+  title: 'View SARWIS Search Point'
+
+edit sarwis search point:
+  title: 'Edit SARWIS Search Point'
+
+delete sarwis search point:
+  title: 'Delete SARWIS Search Point'

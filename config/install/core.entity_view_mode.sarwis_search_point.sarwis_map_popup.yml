@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - sarwis
+id: sarwis_search_point.sarwis_map_popup
+label: 'Map Popup'
+description: null
+targetEntityType: sarwis_search_point
+cache: true

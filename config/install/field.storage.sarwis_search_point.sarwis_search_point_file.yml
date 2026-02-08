@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - sarwis
+id: sarwis_search_point.sarwis_search_point_file
+field_name: sarwis_search_point_file
+entity_type: sarwis_search_point
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

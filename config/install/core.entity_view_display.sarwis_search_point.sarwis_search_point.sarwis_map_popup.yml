@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.sarwis_search_point.sarwis_map_popup
+    - field.field.sarwis_search_point.sarwis_search_point.sarwis_activity
+    - field.field.sarwis_search_point.sarwis_search_point.sarwis_search_point
+    - field.field.sarwis_search_point.sarwis_search_point.sarwis_search_point_file
+    - field.field.sarwis_search_point.sarwis_search_point.sarwis_search_point_notes
+  module:
+    - file
+    - layout_builder
+    - sarwis
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: sarwis_search_point.sarwis_search_point.sarwis_map_popup
+targetEntityType: sarwis_search_point
+bundle: sarwis_search_point
+mode: sarwis_map_popup
+content:
+  sarwis_search_point_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  sarwis_search_point_notes:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  sarwis_activity: true
+  sarwis_search_point: true
