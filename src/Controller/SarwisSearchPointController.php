@@ -17,7 +17,7 @@ class SarwisSearchPointController extends ControllerBase {
    */
   public function settings() {
     return [
-      '#markup' => $this->t('Settings form for SARWIS Search Point. Manage field settings here.'),
+      '#markup' => $this->t('Add SARWIS fields, manage forms and displays'),
     ];
   }
 
