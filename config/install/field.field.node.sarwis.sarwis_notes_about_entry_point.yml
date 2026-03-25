@@ -1,0 +1,19 @@
+uuid: 462d3382-9a8c-41f6-878a-21d58bde2d19
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sarwis_notes_about_entry_point
+    - node.type.sarwis
+id: node.sarwis.sarwis_notes_about_entry_point
+field_name: sarwis_notes_about_entry_point
+entity_type: node
+bundle: sarwis
+label: 'Notes about entry point'
+description: 'Add any notes here about the entry point - how to access, equipment that might be needed, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

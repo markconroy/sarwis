@@ -1,0 +1,19 @@
+uuid: 4d51b879-0a84-4c13-b42e-c677e6a81420
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sarwis_entry_point
+    - node.type.sarwis
+id: node.sarwis.sarwis_entry_point
+field_name: sarwis_entry_point
+entity_type: node
+bundle: sarwis
+label: 'Entry Point'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

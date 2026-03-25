@@ -9,12 +9,8 @@ dependencies:
     - field.field.sarwis_search_point.sarwis_search_point.sarwis_search_point_notes
   module:
     - file
-    - layout_builder
     - sarwis
-third_party_settings:
-  layout_builder:
-    enabled: false
-    allow_custom: false
+third_party_settings: {  }
 id: sarwis_search_point.sarwis_search_point.sarwis_map_popup
 targetEntityType: sarwis_search_point
 bundle: sarwis_search_point

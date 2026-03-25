@@ -1,8 +1,8 @@
-name: 'SARWIS - Search and Recover: What is Searched'
+name: 'SARWIS - Search and Recovery: What is Searched'
 type: module
 description: 'Provides the SARWIS Search Point custom entity.'
 core_version_requirement: ^10 || ^11
-package: 'Custom'
+package: 'Other'
 dependencies:
   - geofield:geofield
   - leaflet:leaflet

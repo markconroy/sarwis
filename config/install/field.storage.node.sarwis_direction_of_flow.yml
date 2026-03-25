@@ -1,0 +1,21 @@
+uuid: 598e8c54-1d96-4820-bbcb-38b56f01ca1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sarwis_direction_of_flow
+field_name: sarwis_direction_of_flow
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

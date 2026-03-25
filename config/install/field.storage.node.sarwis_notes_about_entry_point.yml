@@ -1,0 +1,19 @@
+uuid: 1b3f27d1-e5c3-4927-9370-9f0b337af621
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sarwis_notes_about_entry_point
+field_name: sarwis_notes_about_entry_point
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

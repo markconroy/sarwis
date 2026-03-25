@@ -1,0 +1,19 @@
+uuid: e3679b96-b76f-495a-89a8-2dafe9fb43c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sarwis_direction_of_flow
+    - node.type.sarwis
+id: node.sarwis.sarwis_direction_of_flow
+field_name: sarwis_direction_of_flow
+entity_type: node
+bundle: sarwis
+label: 'Direction of flow'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

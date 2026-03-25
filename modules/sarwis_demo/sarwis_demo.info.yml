@@ -2,6 +2,6 @@ name: 'SARWIS Demo Content'
 type: module
 description: 'Provides demo content for SARWIS Search Point module.'
 core_version_requirement: ^10 || ^11
-package: 'Custom'
+package: 'Other'
 dependencies:
   - sarwis:sarwis

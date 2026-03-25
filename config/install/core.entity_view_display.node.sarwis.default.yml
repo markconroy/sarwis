@@ -1,0 +1,41 @@
+uuid: 9647399a-be9c-40a1-95ef-9cdd132b1e23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sarwis.sarwis_direction_of_flow
+    - field.field.node.sarwis.sarwis_entry_point
+    - field.field.node.sarwis.sarwis_notes_about_entry_point
+    - node.type.sarwis
+  module:
+    - user
+id: node.sarwis.default
+targetEntityType: node
+bundle: sarwis
+mode: default
+content:
+  sarwis_direction_of_flow:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  sarwis_entry_point:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  sarwis_notes_about_entry_point:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  links: true
