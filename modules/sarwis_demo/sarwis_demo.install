@@ -21,7 +21,7 @@ function sarwis_demo_install() {
   // Create Sea node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Missing Person in Sea',
+    'title' => 'Missing Person: Killary Harbour, County Galway',
     'status' => 1,
     'sarwis_entry_point' => $activity_samples['sea']['entry_point'],
     'sarwis_notes_about_entry_point' => $activity_samples['sea']['entry_point_notes'],
@@ -33,7 +33,7 @@ function sarwis_demo_install() {
   // Create Lake node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Missing Person in Lake',
+    'title' => 'Missing Person: Lough Derg, Portumna',
     'status' => 1,
     'sarwis_entry_point' => $activity_samples['lake']['entry_point'],
     'sarwis_notes_about_entry_point' => $activity_samples['lake']['entry_point_notes'],
@@ -45,7 +45,7 @@ function sarwis_demo_install() {
   // Create River node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Missing Person in River',
+    'title' => 'Missing Person: Athlone Bridge, River Shannon',
     'status' => 1,
     'sarwis_entry_point' => $activity_samples['river']['entry_point'],
     'sarwis_notes_about_entry_point' => $activity_samples['river']['entry_point_notes'],
@@ -74,34 +74,112 @@ function sarwis_demo_install() {
     'Snorkelling team performed surface search along the shoreline. Good conditions, area cleared with no findings.'
   );
 
+  // Additional sea sample search points.
+  _sarwis_demo_create_search_point(
+    'Sea Swim 1',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-1.gpx',
+    'Dive team searched a parallel route near the incident site. Calm conditions, no findings.'
+  );
+  _sarwis_demo_create_search_point(
+    'Sea Swim 2',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-2.gpx',
+    'Snorkelling team performed a sweep 50m east of the main search. Area cleared.'
+  );
+  _sarwis_demo_create_search_point(
+    'Sea Swim 3',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-3.gpx',
+    'Dive team searched a route west of the incident. Visibility moderate, no objects found.'
+  );
+  _sarwis_demo_create_search_point(
+    'Sea Swim 4',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-4.gpx',
+    'Snorkelling team checked shallow waters near the shore. No findings.'
+  );
+  _sarwis_demo_create_search_point(
+    'Short Sea Swim 1',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-5.gpx',
+    'Short swim route (250m) for rapid response, starting within 100m of incident.'
+  );
+  _sarwis_demo_create_search_point(
+    'Short Sea Swim 2',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-6.gpx',
+    'Short parallel swim for secondary team, used for quick checks.'
+  );
+  _sarwis_demo_create_search_point(
+    'Long Sea Swim 1',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-7.gpx',
+    'Long swim route (700m) for extended search, starting near incident.'
+  );
+  _sarwis_demo_create_search_point(
+    'Long Sea Swim 2',
+    $nodes['sea'],
+    $module_path . '/content/sea/sample-1/sea-swim-8.gpx',
+    'Long parallel swim for advanced search and rescue.'
+  );
+
   // Lake search points.
 
   _sarwis_demo_create_search_point(
     'Diving Search 1',
     $nodes['lake'],
-    $module_path . '/content/lake/lake-1.gpx',
+    $module_path . '/content/lake/sample-1/lake-swim-1.gpx',
     'Dive team searched the lake bed near the incident site. Visibility was low, and divers marked several submerged objects for further inspection.'
   );
 
   _sarwis_demo_create_search_point(
     'Diving Search 2',
     $nodes['lake'],
-    $module_path . '/content/lake/lake-2.gpx',
+    $module_path . '/content/lake/sample-1/lake-swim-2.gpx',
     'Divers extended the search area to the north dock. No evidence found, but search grid completed as planned.'
   );
 
   _sarwis_demo_create_search_point(
     'Snorkelling Search 1',
     $nodes['lake'],
-    $module_path . '/content/lake/lake-3.gpx',
+    $module_path . '/content/lake/sample-1/lake-swim-3.gpx',
     'Snorkelling team performed a surface sweep along the southern shore. Water was clear, and no items of interest were located.'
   );
 
   _sarwis_demo_create_search_point(
     'Snorkelling Search 2',
     $nodes['lake'],
-    $module_path . '/content/lake/lake-4.gpx',
+    $module_path . '/content/lake/sample-1/lake-swim-4.gpx',
     'Snorkellers checked shallow areas near the boat ramp. Area cleared, no findings.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Short Swim 1',
+    $nodes['lake'],
+    $module_path . '/content/lake/sample-1/lake-swim-5.gpx',
+    'Short swim route (250m) starting at 53°04\'59.0\"N 8°12\'38.9\"W. Used for warm-up and beginner training.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Short Swim 2',
+    $nodes['lake'],
+    $module_path . '/content/lake/sample-1/lake-swim-6.gpx',
+    'Short swim route (250m) parallel to Short Swim 1. Used for group drills and safety exercises.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Long Swim 1',
+    $nodes['lake'],
+    $module_path . '/content/lake/sample-1/lake-swim-7.gpx',
+    'Long swim route (700m) starting at 53°04\'44.5\"N 8°12\'46.2\"W. Used for endurance training and advanced search.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Long Swim 2',
+    $nodes['lake'],
+    $module_path . '/content/lake/sample-1/lake-swim-8.gpx',
+    'Long swim route (700m) parallel to Long Swim 1. Used for extended search and rescue practice.'
   );
 
   // River search points.
@@ -118,6 +196,56 @@ function sarwis_demo_install() {
     $nodes['river'],
     $module_path . '/content/river/river-2.gpx',
     'Snorkelling team conducted a surface search in calm stretches of the river. Visibility was fair, and no items were recovered.'
+  );
+
+  // Additional river sample search points.
+  _sarwis_demo_create_search_point(
+    'River Swim 1',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-1.gpx',
+    'Dive team searched a parallel route near the incident site. No findings.'
+  );
+  _sarwis_demo_create_search_point(
+    'River Swim 2',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-2.gpx',
+    'Snorkelling team performed a sweep 50m east of the main search. Area cleared.'
+  );
+  _sarwis_demo_create_search_point(
+    'River Swim 3',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-3.gpx',
+    'Dive team searched a route west of the incident. No objects found.'
+  );
+  _sarwis_demo_create_search_point(
+    'River Swim 4',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-4.gpx',
+    'Snorkelling team checked shallow waters near the bank. No findings.'
+  );
+  _sarwis_demo_create_search_point(
+    'Short River Swim 1',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-5.gpx',
+    'Short swim route (250m) for rapid response, starting within 100m of incident.'
+  );
+  _sarwis_demo_create_search_point(
+    'Short River Swim 2',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-6.gpx',
+    'Short parallel swim for secondary team, used for quick checks.'
+  );
+  _sarwis_demo_create_search_point(
+    'Long River Swim 1',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-7.gpx',
+    'Long swim route (700m) for extended search, starting near incident.'
+  );
+  _sarwis_demo_create_search_point(
+    'Long River Swim 2',
+    $nodes['river'],
+    $module_path . '/content/river/sample-1/river-swim-8.gpx',
+    'Long parallel swim for advanced search and rescue.'
   );
 }
 

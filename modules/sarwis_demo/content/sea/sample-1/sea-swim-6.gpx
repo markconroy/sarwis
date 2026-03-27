@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="SampleGenerator"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd">
+  <trk>
+    <name>Sea Swim Route 6</name>
+    <type>swimming</type>
+    <trkseg>
+      <trkpt lat="53.595250" lon="-9.799700"><ele>0.0</ele></trkpt>
+      <trkpt lat="53.595350" lon="-9.799700"><ele>0.0</ele></trkpt>
+      <trkpt lat="53.595450" lon="-9.799700"><ele>0.0</ele></trkpt>
+      <trkpt lat="53.595550" lon="-9.799700"><ele>0.0</ele></trkpt>
+      <trkpt lat="53.595650" lon="-9.799700"><ele>0.0</ele></trkpt>
+      <trkpt lat="53.595750" lon="-9.799700"><ele>0.0</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
