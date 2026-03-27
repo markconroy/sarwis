@@ -13,6 +13,8 @@ use Drupal\file\Entity\File;
  * Implements hook_install().
  */
 function sarwis_demo_install() {
+  $activity_samples = _sarwis_demo_activity_sample_data();
+
   // Create the three activity nodes.
   $nodes = [];
 
@@ -21,6 +23,9 @@ function sarwis_demo_install() {
     'type' => 'sarwis',
     'title' => 'Swimming',
     'status' => 1,
+    'sarwis_entry_point' => $activity_samples['swimming']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['swimming']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['swimming']['direction_of_flow'],
   ]);
   $node->save();
   $nodes['swimming'] = $node;
@@ -30,6 +35,9 @@ function sarwis_demo_install() {
     'type' => 'sarwis',
     'title' => 'Running',
     'status' => 1,
+    'sarwis_entry_point' => $activity_samples['running']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['running']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['running']['direction_of_flow'],
   ]);
   $node->save();
   $nodes['running'] = $node;
@@ -39,6 +47,9 @@ function sarwis_demo_install() {
     'type' => 'sarwis',
     'title' => 'Cycling',
     'status' => 1,
+    'sarwis_entry_point' => $activity_samples['cycling']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['cycling']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['cycling']['direction_of_flow'],
   ]);
   $node->save();
   $nodes['cycling'] = $node;
@@ -150,6 +161,32 @@ function _sarwis_demo_create_search_point($name, $activity_node, $gpx_file_path,
   }
 
   $search_point->save();
+}
+
+/**
+ * Provides sample data for demo activity fields.
+ *
+ * @return array<string, array<string, string>>
+ *   Sample values keyed by activity machine name.
+ */
+function _sarwis_demo_activity_sample_data() {
+  return [
+    'swimming' => [
+      'entry_point' => 'Main leisure centre entrance',
+      'entry_point_notes' => 'Enter through reception, then use the west-side changing rooms. Bring a padlock for lockers and flip-flops for poolside access.',
+      'direction_of_flow' => 'Clockwise',
+    ],
+    'running' => [
+      'entry_point' => 'North gate car park',
+      'entry_point_notes' => 'Start from the trail map board beside the car park. Water fountain and toilets are available near the playground before 8pm.',
+      'direction_of_flow' => 'Counter-clockwise',
+    ],
+    'cycling' => [
+      'entry_point' => 'Canal trailhead by old bridge',
+      'entry_point_notes' => 'Access the greenway through the bollards near the bridge. Surface is compact gravel for the first 1.5km; lights recommended at dusk.',
+      'direction_of_flow' => 'Clockwise',
+    ],
+  ];
 }
 
 /**
