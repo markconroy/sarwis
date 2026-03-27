@@ -11,8 +11,8 @@
     <time>2025-12-31T09:44:14.000Z</time>
   </metadata>
   <trk>
-    <name>County Galway Running</name>
-    <type>running</type>
+    <name>Sample Lake Incident</name>
+    <type>lake_incident</type>
     <trkseg>
       <trkpt lat="53.08961304835975170135498046875" lon="-8.22067215107381343841552734375">
         <ele>42.59999847412109375</ele>

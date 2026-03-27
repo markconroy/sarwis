@@ -11,8 +11,8 @@
     <time>2022-07-25T15:21:38.000Z</time>
   </metadata>
   <trk>
-    <name>County Galway Open Water Swimming</name>
-    <type>open_water_swimming</type>
+    <name>Sample Sea Incident</name>
+    <type>sea_incident</type>
     <trkseg>
       <trkpt lat="53.1173057667911052703857421875" lon="-8.17149217240512371063232421875">
         <ele>32.799999237060546875</ele>

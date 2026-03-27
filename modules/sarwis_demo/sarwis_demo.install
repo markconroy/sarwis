@@ -18,102 +18,106 @@ function sarwis_demo_install() {
   // Create the three activity nodes.
   $nodes = [];
 
-  // Create Swimming node.
+  // Create Sea node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Swimming',
+    'title' => 'Missing Person in Sea',
     'status' => 1,
-    'sarwis_entry_point' => $activity_samples['swimming']['entry_point'],
-    'sarwis_notes_about_entry_point' => $activity_samples['swimming']['entry_point_notes'],
-    'sarwis_direction_of_flow' => $activity_samples['swimming']['direction_of_flow'],
+    'sarwis_entry_point' => $activity_samples['sea']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['sea']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['sea']['direction_of_flow'],
   ]);
   $node->save();
-  $nodes['swimming'] = $node;
+  $nodes['sea'] = $node;
 
-  // Create Running node.
+  // Create Lake node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Running',
+    'title' => 'Missing Person in Lake',
     'status' => 1,
-    'sarwis_entry_point' => $activity_samples['running']['entry_point'],
-    'sarwis_notes_about_entry_point' => $activity_samples['running']['entry_point_notes'],
-    'sarwis_direction_of_flow' => $activity_samples['running']['direction_of_flow'],
+    'sarwis_entry_point' => $activity_samples['lake']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['lake']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['lake']['direction_of_flow'],
   ]);
   $node->save();
-  $nodes['running'] = $node;
+  $nodes['lake'] = $node;
 
-  // Create Cycling node.
+  // Create River node.
   $node = Node::create([
     'type' => 'sarwis',
-    'title' => 'Cycling',
+    'title' => 'Missing Person in River',
     'status' => 1,
-    'sarwis_entry_point' => $activity_samples['cycling']['entry_point'],
-    'sarwis_notes_about_entry_point' => $activity_samples['cycling']['entry_point_notes'],
-    'sarwis_direction_of_flow' => $activity_samples['cycling']['direction_of_flow'],
+    'sarwis_entry_point' => $activity_samples['river']['entry_point'],
+    'sarwis_notes_about_entry_point' => $activity_samples['river']['entry_point_notes'],
+    'sarwis_direction_of_flow' => $activity_samples['river']['direction_of_flow'],
   ]);
   $node->save();
-  $nodes['cycling'] = $node;
+  $nodes['river'] = $node;
 
   // Create search point entities for each GPX file.
   $module_path = \Drupal::service('extension.list.module')->getPath('sarwis_demo');
 
   // Swimming search points.
+  // Sea search points (Swimming).
+
   _sarwis_demo_create_search_point(
-    'Swimming 1',
-    $nodes['swimming'],
-    $module_path . '/content/swimming/swimming-1.gpx',
-    'First swimming session - Great swim at the local pool. Water temperature was perfect at 28°C. Completed 40 laps focusing on freestyle technique.'
+    'Diving Search 1',
+    $nodes['sea'],
+    $module_path . '/content/sea/sea-1.gpx',
+    'Dive team conducted underwater search in the designated sea area. Visibility was moderate, and no objects of interest were found during this session.'
   );
 
   _sarwis_demo_create_search_point(
-    'Swimming 2',
-    $nodes['swimming'],
-    $module_path . '/content/swimming/swimming-2.gpx',
-    'Second swimming session - Open water swim at the lake. Challenging conditions with some choppy water, but completed the full distance. Visibility was good.'
+    'Snorkelling Search 1',
+    $nodes['sea'],
+    $module_path . '/content/sea/sea-2.gpx',
+    'Snorkelling team performed surface search along the shoreline. Good conditions, area cleared with no findings.'
   );
 
-  // Running search points.
-  _sarwis_demo_create_search_point(
-    'Running 1',
-    $nodes['running'],
-    $module_path . '/content/running/running-1.gpx',
-    'Morning run through the park. Easy pace, enjoyed the sunrise. Felt strong throughout, legs recovered well from yesterday.'
-  );
+  // Lake search points.
 
   _sarwis_demo_create_search_point(
-    'Running 2',
-    $nodes['running'],
-    $module_path . '/content/running/running-2.gpx',
-    'Interval training session. 8x400m repeats with 90 second recovery. Heart rate peaked at 180bpm. Tough but effective workout.'
+    'Diving Search 1',
+    $nodes['lake'],
+    $module_path . '/content/lake/lake-1.gpx',
+    'Dive team searched the lake bed near the incident site. Visibility was low, and divers marked several submerged objects for further inspection.'
   );
 
   _sarwis_demo_create_search_point(
-    'Running 3',
-    $nodes['running'],
-    $module_path . '/content/running/running-3.gpx',
-    'Long run day - 15km at steady pace. Started slow and built up gradually. Nutrition strategy worked well, took gels at 5km and 10km.'
+    'Diving Search 2',
+    $nodes['lake'],
+    $module_path . '/content/lake/lake-2.gpx',
+    'Divers extended the search area to the north dock. No evidence found, but search grid completed as planned.'
   );
 
   _sarwis_demo_create_search_point(
-    'Running 4',
-    $nodes['running'],
-    $module_path . '/content/running/running-4.gpx',
-    'Recovery run after yesterday\'s long effort. Easy 5km keeping heart rate in zone 2. Legs felt a bit heavy but mobility improved as I went.'
-  );
-
-  // Cycling search points.
-  _sarwis_demo_create_search_point(
-    'Cycling 1',
-    $nodes['cycling'],
-    $module_path . '/content/cycling/cycling-1.gpx',
-    'Sunday group ride - 60km with the club. Beautiful weather, light winds. Average speed 28km/h. Great social ride with coffee stop at halfway.'
+    'Snorkelling Search 1',
+    $nodes['lake'],
+    $module_path . '/content/lake/lake-3.gpx',
+    'Snorkelling team performed a surface sweep along the southern shore. Water was clear, and no items of interest were located.'
   );
 
   _sarwis_demo_create_search_point(
-    'Cycling 2',
-    $nodes['cycling'],
-    $module_path . '/content/cycling/cycling-2.gpx',
-    'Hill repeats session. 6 climbs of the local hill, 1.2km at 7% gradient each. Power output averaged 280w on climbs. Legs burning but great training.'
+    'Snorkelling Search 2',
+    $nodes['lake'],
+    $module_path . '/content/lake/lake-4.gpx',
+    'Snorkellers checked shallow areas near the boat ramp. Area cleared, no findings.'
+  );
+
+  // River search points.
+
+  _sarwis_demo_create_search_point(
+    'Diving Search 1',
+    $nodes['river'],
+    $module_path . '/content/river/river-1.gpx',
+    'Dive team searched deep pools and undercut banks along the river. Strong current limited bottom time, but area was thoroughly checked.'
+  );
+
+  _sarwis_demo_create_search_point(
+    'Snorkelling Search 1',
+    $nodes['river'],
+    $module_path . '/content/river/river-2.gpx',
+    'Snorkelling team conducted a surface search in calm stretches of the river. Visibility was fair, and no items were recovered.'
   );
 }
 
@@ -171,20 +175,20 @@ function _sarwis_demo_create_search_point($name, $activity_node, $gpx_file_path,
  */
 function _sarwis_demo_activity_sample_data() {
   return [
-    'swimming' => [
-      'entry_point' => 'Main leisure centre entrance',
-      'entry_point_notes' => 'Enter through reception, then use the west-side changing rooms. Bring a padlock for lockers and flip-flops for poolside access.',
-      'direction_of_flow' => 'Clockwise',
+    'sea' => [
+      'entry_point' => 'Main car park at the beach',
+      'entry_point_notes' => 'The beach is accessible via the main car park.',
+      'direction_of_flow' => 'North',
     ],
-    'running' => [
+    'lake' => [
       'entry_point' => 'North gate car park',
-      'entry_point_notes' => 'Start from the trail map board beside the car park. Water fountain and toilets are available near the playground before 8pm.',
-      'direction_of_flow' => 'Counter-clockwise',
+      'entry_point_notes' => 'Start from the trail map board beside the car park.',
+      'direction_of_flow' => 'East',
     ],
-    'cycling' => [
+    'river' => [
       'entry_point' => 'Canal trailhead by old bridge',
-      'entry_point_notes' => 'Access the greenway through the bollards near the bridge. Surface is compact gravel for the first 1.5km; lights recommended at dusk.',
-      'direction_of_flow' => 'Clockwise',
+      'entry_point_notes' => 'Access the greenway through the bollards near the bridge. Surface is compact gravel for the first 1.5km. No vehicular access beyond the trailhead.',
+      'direction_of_flow' => 'South',
     ],
   ];
 }
@@ -198,7 +202,7 @@ function sarwis_demo_uninstall() {
   $search_point_storage = \Drupal::entityTypeManager()->getStorage('sarwis_search_point');
 
   // Find and delete demo nodes.
-  $demo_titles = ['Swimming', 'Running', 'Cycling'];
+  $demo_titles = ['Sea', 'Lake', 'River'];
   foreach ($demo_titles as $title) {
     $nodes = $node_storage->loadByProperties([
       'type' => 'sarwis',

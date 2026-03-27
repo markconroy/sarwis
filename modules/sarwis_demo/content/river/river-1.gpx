@@ -11,8 +11,8 @@
     <time>2024-11-07T16:33:07.000Z</time>
   </metadata>
   <trk>
-    <name>County Galway Cycling</name>
-    <type>cycling</type>
+    <name>Sample River Incident</name>
+    <type>river_incident</type>
     <trkseg>
       <trkpt lat="53.09393408708274364471435546875" lon="-8.21648522280156612396240234375">
         <ele>34.200000762939453125</ele>
